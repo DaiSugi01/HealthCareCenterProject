@@ -1,6 +1,7 @@
 package healthCareCenter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Appointment {
@@ -32,8 +33,10 @@ public class Appointment {
 	/**
 	 * @return appointment date
 	 */
-	public LocalDateTime getAppointmentDate() {
-		return appointmentDate;
+	public String getAppointmentDate() {
+		LocalDateTime l1 = LocalDateTime.of(2020, 11, 1, 11, 30);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm");
+		return l1.format(formatter);
 	}
 
 	/**

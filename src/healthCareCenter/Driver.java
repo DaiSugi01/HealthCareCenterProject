@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Driver {
 
 	public static void main(String[] args) {
-
+		
 		// Doctors and Patients
 		Patient p1 = new Patient("Allan", "Smith", "888888", "alan@gmail.com", LocalDate.of(1997, 4, 12), "male"); 
 		Patient p2 = new Patient("Ross", "Geller", "888889", "ross@gmail.com", LocalDate.of(1990, 5, 25), "male");
@@ -72,39 +72,30 @@ public class Driver {
 			Appointment newAppointment =  makeNewAppointment(patient);
 			
 			// ask user to enter the doctor id
-			
+			Doctor doctor = findDoctor(doctors);
 			
 			// add this appointment to list of appointments of the doctor
+			doctor.addAppontment(newAppointment);
 			
 			// print the information of their appointment.
-			System.out.println("Your Appointment is on " + "OCT 31 2020 12:30" + "with " + 
-					"doctors full name" + ".");			
+			System.out.println("Your Appointment is on " + newAppointment.getAppointmentDate() + 
+					" with " + doctor.getFullName() + ".");			
 		}
-		
-		// ask user to continue or quit
-//		System.out.print("Please input c to continue, or q to quit");
-		
-		// take user input here
-		
-		// if user type q, break this loop, otherwise, go to next loop
-//			if () {
-//				break;
-//			}
 		
 	}
 	
 	public static Appointment makeNewAppointment(Patient patient) {
 		Scanner input = new Scanner(System.in);
-		System.out.print("When is your appointment?");
-		System.out.println("Year: ");
+		System.out.println("When is your appointment?");
+		System.out.print("Year: ");
 		int year = input.nextInt();
-		System.out.println("Month: ");
+		System.out.print("Month: ");
 		int month = input.nextInt();
-		System.out.println("Date: ");
+		System.out.print("Date: ");
 		int day = input.nextInt();
-		System.out.println("Hour: ");
+		System.out.print("Hour: ");
 		int hour = input.nextInt();
-		System.out.println("Minutes: ");
+		System.out.print("Minutes: ");
 		int minutes = input.nextInt();
 		
 		return new Appointment(patient, LocalDateTime.of(2020, 11, 1, 11, 30));
