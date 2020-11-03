@@ -49,7 +49,7 @@ public class Appointment {
 	
 	@Override
 	public String toString() {
-		return "\nAppointmen Date: " + appointmentDate +
+		return "\nAppointment Date: " + getAppointmentDate() +
 				"\nPatient Name: " + patient.getFirstName() +  " " + patient.getLastName();
 				
 	}

@@ -30,7 +30,7 @@ public class Doctor {
 	 * add given appointments to array list
 	 * @param appointment
 	 */
-	public void addAppontment(Appointment appointment) {
+	public void addAppointment(Appointment appointment) {
 		this.appointments.add(appointment);
 	}
 	/**

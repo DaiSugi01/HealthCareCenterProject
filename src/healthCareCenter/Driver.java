@@ -3,6 +3,8 @@ package healthCareCenter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -46,8 +48,8 @@ public class Driver {
 		Appointment a1 = new Appointment(p1, LocalDateTime.of(2020, 11, 1, 11, 30));
 		Appointment a2 = new Appointment(p2, LocalDateTime.of(2020, 12, 2, 22, 40));
 		
-		d1.addAppontment(a1);
-		d1.addAppontment(a2);
+		d1.addAppointment(a1);
+		d1.addAppointment(a2);
 		doctors.add(d1);
 		doctors.add(d2);
 		doctors.add(d3);
@@ -78,7 +80,7 @@ public class Driver {
 			Doctor doctor = findDoctor(doctors);
 			
 			// add this appointment to list of appointments of the doctor
-			doctor.addAppontment(newAppointment);
+			doctor.addAppointment(newAppointment);
 			
 			// print the information of their appointment.
 			System.out.println("Your Appointment is on " + newAppointment.getAppointmentDate() + 
@@ -87,22 +89,129 @@ public class Driver {
 		
 	}
 	
+	/**
+	 * @param patient
+	 * @return new appointment object
+	 */
 	public static Appointment makeNewAppointment(Patient patient) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("When is your appointment?");
-		System.out.print("Year: ");
-		int year = input.nextInt();
-		System.out.print("Month: ");
-		int month = input.nextInt();
-		System.out.print("Date: ");
-		int day = input.nextInt();
-		System.out.print("Hour: ");
-		int hour = input.nextInt();
-		System.out.print("Minutes: ");
-		int minutes = input.nextInt();
-		
+		System.out.println("When is your appointment? (e.g. 2020 12 31 13 55)");
+		int year = checkYear();
+		int month = checkMonth();
+		int day = checkDay(year, month);		
+		int hour = checkHour();
+		int minutes = checkMinutes();
+
 		return new Appointment(patient, LocalDateTime.of(year, month, day, hour, minutes));
 		
+	}
+	
+	/**
+	 * @return year
+	 */
+	public static int checkYear() {
+		Scanner input = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Year: ");
+			int year = input.nextInt();
+			
+			if (year > 0) {
+				return year;
+			} else {
+				System.err.println("Year should be more than 0. Please enter again.");
+			}
+		}
+	}
+	
+	/**
+	 * @return month
+	 */
+	public static int checkMonth() {
+		Scanner input = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Month: ");
+			int month = input.nextInt();
+			
+			if (month >= 1 && month <= 12) {
+				return month;
+			} else {
+				System.err.println("Month should be between 1 and 12. Please enter again.");
+			}
+		}
+	}
+	
+	/**
+	 * @return Day
+	 */
+	public static int checkDay(int year, int month) {
+		
+        GregorianCalendar cal = (GregorianCalendar)Calendar.getInstance();
+		int maxDay;
+		
+		switch (month) {
+		case 2:
+			if (cal.isLeapYear(year)) {
+				maxDay = 29;
+			} else {
+				maxDay = 28;
+			}
+			break;
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+			maxDay = 31;
+			break;
+		default:
+			maxDay = 30;
+		}
+		
+		Scanner input = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Day: ");
+			int day = input.nextInt();
+			if (day >= 1 && day <= maxDay) {	
+				return day;
+			} else {
+				System.err.println("Day should be between 1 and " + maxDay + ". Please enter again.");
+			}
+		}
+	}
+	
+	/**
+	 * @return Hour
+	 */
+	public static int checkHour() {
+		Scanner input = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Hour: ");
+			int hour = input.nextInt();
+			
+			if (hour >= 0 && hour <= 23) {
+				return hour;
+			} else {
+				System.err.println("Hour should be between 0 and 23. Please enter again.");
+			}
+		}
+	}
+	
+	/**
+	 * @return Minutes
+	 */
+	public static int checkMinutes() {
+		Scanner input = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Minutes: ");
+			int minutes = input.nextInt();
+			
+			if (minutes >= 0 && minutes <= 59) {
+				return minutes;
+			} else {
+				System.err.println("Minutes should be between 0 and 59. Please enter again.");
+			}
+		}
 	}
 	
 	/**
