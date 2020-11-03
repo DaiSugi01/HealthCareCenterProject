@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * @author Daiki & Marina Braholka
+ */
 public class Driver {
 
 	public static void main(String[] args) {
