@@ -34,9 +34,8 @@ public class Appointment {
 	 * @return appointment date
 	 */
 	public String getAppointmentDate() {
-		LocalDateTime l1 = LocalDateTime.of(2020, 11, 1, 11, 30);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm");
-		return l1.format(formatter);
+		return appointmentDate.format(formatter);
 	}
 
 	/**
