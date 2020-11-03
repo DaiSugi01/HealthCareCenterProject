@@ -98,7 +98,7 @@ public class Driver {
 		System.out.print("Minutes: ");
 		int minutes = input.nextInt();
 		
-		return new Appointment(patient, LocalDateTime.of(2020, 11, 1, 11, 30));
+		return new Appointment(patient, LocalDateTime.of(year, month, day, hour, minutes));
 		
 	}
 	
