@@ -47,8 +47,9 @@ public class Appointment {
 	
 	@Override
 	public String toString() {
-		return "Patient: " + "Imprement Here" +
-				"\n\tAppointmen Date: " + appointmentDate;
+		return "\nAppointmen Date: " + appointmentDate +
+				"\nPatient Name: " + patient.getFirstName() +  " " + patient.getLastName();
+				
 	}
 	
 }

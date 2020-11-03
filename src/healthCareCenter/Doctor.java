@@ -11,12 +11,12 @@ public class Doctor {
 	private int doctorId;
 	private String firstName;
 	private String lastName;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
 	private String specialty;
 	private ArrayList<Appointment> appointments;
 	
-	public Doctor(String firstName, String lastName, int phoneNumber, String email, String specialty) {
+	public Doctor(String firstName, String lastName, String phoneNumber, String email, String specialty) {
 		this.doctorId = UNIEQUE_ID++;
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -81,19 +81,19 @@ public class Doctor {
 	/**
 	 * @return phone number
 	 */
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	/**
 	 * @param phoneNumber
 	 */
-	public void setPhoneNumber(int phoneNumber) {
-		if (phoneNumber > 0) {
-			this.phoneNumber = phoneNumber;
+	public void setPhoneNumber(String phoneNumber) {
+		if (Objects.isNull(phoneNumber) || phoneNumber.isEmpty()) {
+			System.err.println("Phone number should not be null. For default value, it is sat " + UNKNOWN);
+			this.phoneNumber = UNKNOWN;			
 		} else {
-			System.err.println("Phone number should more than 0. For default value, it is sat " + 1);
-			this.phoneNumber = 1;
+			this.phoneNumber = phoneNumber;
 		}
 	}
 

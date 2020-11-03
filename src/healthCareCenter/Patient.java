@@ -14,7 +14,7 @@ public class Patient {
 	private String gender;
 
 
-	public Patient(int patientID, String firstName, String lastName, String phoneNum, String email, LocalDate dateOfBirth, String gender) {
+	public Patient(String firstName, String lastName, String phoneNum, String email, LocalDate dateOfBirth, String gender) {
 		this.patientID = UNIQUE_ID++;
 		setFirstName(firstName);
 		setLastName(lastName);
