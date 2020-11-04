@@ -95,7 +95,7 @@ public class Driver {
 	 */
 	public static Appointment makeNewAppointment(Patient patient) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("When is your appointment? (e.g. 2020 12 31 13 55)");
+		System.out.println("When is your appointment?: ");
 		int year = checkYear();
 		int month = checkMonth();
 		int day = checkDay(year, month);		
