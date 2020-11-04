@@ -44,10 +44,6 @@ public class Driver {
 		Doctor d3 = new Doctor("Aidan", "Middleton", "1111111", "aidan@gmail.com", "DERMATOLOGY");
 		Doctor d4 = new Doctor("Zhaleh", "Sojoodi", "1111111", "zhaleh@gmail.com", "DIAGNOSTIC RADIOLOGY");
 		
-		System.out.println(p1);
-		System.out.println();
-		System.out.println(d1);
-		
 		ArrayList<Doctor> doctors = new ArrayList<>();
 		Appointment a1 = new Appointment(p1, LocalDateTime.of(2020, 11, 1, 11, 30));
 		Appointment a2 = new Appointment(p2, LocalDateTime.of(2020, 12, 2, 22, 40));
