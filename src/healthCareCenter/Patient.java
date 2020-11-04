@@ -72,6 +72,7 @@ public class Patient extends User {
 	public String toString() {
 		return "Patient ID: " + patientID +
 				super.toString() +
+				"\nGender: " + gender +
 				"\nDate of Birth : " + getDateOfBirth();
 	}
 	
