@@ -30,35 +30,19 @@ public class Patient {
 	}
 
 	public String getFirstName() {
-		if(firstName.isEmpty() || firstName.equalsIgnoreCase("")) {
-			return "Unknown";
-		} else {
-			return firstName;
-		}
+		return firstName;
 	}
 	
 	public String getLastName() {
-		if(lastName.isEmpty() || lastName.equalsIgnoreCase("")) {
-			return "Unknown";
-		} else {
-			return lastName;
-		}
+		return lastName;
 	}
 
 	public String getPhoneNum() {
-		if(phoneNum.isEmpty() || phoneNum.equalsIgnoreCase("")) {
-			return "Unknown";
-		} else {
-			return phoneNum;
-		}
+		return phoneNum;
 	}
 
 	public String getEmail() {
-		if(email.isEmpty() || email.equalsIgnoreCase("")) {
-			return "Unknown";
-		} else {
-			return email;
-		}
+		return email;
 	}
 
 	public LocalDate getDateOfBirth() {
@@ -66,33 +50,49 @@ public class Patient {
 	}
 
 	public String getGender() {
-		if(gender.isEmpty() || gender.equalsIgnoreCase("")) {
-			return "Unknown";
-		} else {
-			return gender;
-		}
+		return gender;
 	}
 
 	public void setPatientID(int patientID) {
 		this.patientID = patientID;
 	}
+	
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+		if(firstName.isEmpty() || firstName.equalsIgnoreCase("")) {
+			this.firstName = "Unknown";
+		} else {
+			this.firstName = firstName;
+		}
 
+	}
+	
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		if(lastName.isEmpty() || lastName.equalsIgnoreCase("")) {
+			this.lastName = "Unknown";
+		} else {
+			this.lastName = lastName;
+		}
+
 	}
 
 
 	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
+		if(phoneNum.isEmpty() || phoneNum.equalsIgnoreCase("")) {
+			this.phoneNum = "Unknown";
+		} else {
+			this.phoneNum = phoneNum;
+		}
 	}
 
+	
 	public void setEmail(String email) {
-		this.email = email;
+		if(email.isEmpty() || email.equalsIgnoreCase("")) {
+			this.email = "Unknown";
+		} else {
+			this.email = email;
+		}
 	}
 
 
@@ -102,8 +102,13 @@ public class Patient {
 
 
 	public void setGender(String gender) {
-		this.gender = gender;
+		if(gender.isEmpty() || gender.equalsIgnoreCase("")) {
+			this.gender = "Unknown";
+		} else {
+			this.gender = gender;
+		}
 	}
+	
 	
 	public String toString() {
 		return "Name : " + getFirstName() + " " + getLastName() +
