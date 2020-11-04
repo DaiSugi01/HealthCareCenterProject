@@ -281,6 +281,12 @@ public class Driver {
 	 * @param appointments
 	 */
 	public static void printAppointmentInfo(ArrayList<Appointment> appointments) {
+		
+		if (appointments.isEmpty()) {
+			System.out.println("There is no appointment.");
+			return;
+		}
+		
 		for (Appointment appointment : appointments) {
 			System.out.println(appointment);
 		}

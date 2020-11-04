@@ -13,7 +13,7 @@ public class Patient extends User {
 	public Patient(String firstName, String lastName, String phoneNumber, String email,
 			LocalDate dateOfBirth, String gender) {
 		super(firstName, lastName, phoneNumber, email);
-		this.patientID = UNIQUE_ID++;
+		setPatientID();
 		setDateOfBirth(dateOfBirth);
 		setGender(gender);
 	}
@@ -42,8 +42,12 @@ public class Patient extends User {
 	/**
 	 * @param patientID
 	 */
-	public void setPatientID(int patientID) {
-		this.patientID = patientID;
+	private void setPatientID() {
+		if (UNIQUE_ID <= 100000) {
+			this.patientID = UNIQUE_ID++;
+		} else {
+			System.err.println("We cannot create user anymore");
+		}
 	}
 	
 	/**

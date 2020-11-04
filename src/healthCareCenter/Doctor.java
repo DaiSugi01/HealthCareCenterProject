@@ -13,7 +13,7 @@ public class Doctor extends User {
 	
 	public Doctor(String firstName, String lastName, String phoneNumber, String email, String specialty) {
 		super(firstName, lastName, phoneNumber, email);
-		this.doctorId = UNIQUE_ID++;
+		setDoctorId();
 		setSpecialty(specialty);
 		this.appointments = new ArrayList<>();
 	}
@@ -33,7 +33,14 @@ public class Doctor extends User {
 		return doctorId;
 	}
 	
-
+	private void setDoctorId() {
+		if (UNIQUE_ID <= 100000) {
+			this.doctorId = UNIQUE_ID++;
+		} else {
+			System.err.println("We cannot create user anymore");
+		}
+	}
+	
 	/**
 	 * @return specialty
 	 */
