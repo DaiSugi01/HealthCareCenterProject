@@ -72,7 +72,7 @@ public class Doctor extends User {
 	public String toString() {
 		return "Doctor ID: " + doctorId +
 				super.toString() +
-				"\n\tSpecialty: " + specialty;
+				"\nSpecialty: " + specialty;
 	}
 		
 }
